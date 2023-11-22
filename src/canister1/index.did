@@ -1,0 +1,8 @@
+service: () -> {
+    addMessage1: (record {attachmentURL:text; title:text; body:text}) -> (record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64});
+    jsonResponse: () -> (text);
+    messages: () -> (vec record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64});
+    randomBytes: () -> (vec nat8);
+    xkcd: (text) -> (record {status:nat; body:vec nat8; headers:vec record {value:text; name:text}});
+    xkcdTransform: (record {context:vec nat8; response:record {status:nat; body:vec nat8; headers:vec record {value:text; name:text}}}) -> (record {status:nat; body:vec nat8; headers:vec record {value:text; name:text}}) query;
+}

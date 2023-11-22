@@ -1,0 +1,8 @@
+service: () -> {
+    addMessage: (record {attachmentURL:text; title:text; body:text}) -> (record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64});
+    canisterBalance: () -> (nat64) query;
+    deleteMessage: (text) -> (opt record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64});
+    getMessage: (text) -> (opt record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64}) query;
+    getMessages: () -> (vec record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64}) query;
+    updateMessage: (text, record {attachmentURL:text; title:text; body:text}) -> (variant {Ok:record {id:text; attachmentURL:text; title:text; body:text; createdAt:nat64; updatedAt:opt nat64}; Err:variant {MessageDoesNotExist:text}});
+}
